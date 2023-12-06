@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .contact-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #3498db;
+      }
+
+      a:hover {
+        color: #1d70b8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Task List</h1>
+    <ul>
+      <% contacts.forEach(contact => { %>
+      <li>
+        <div>
+          <strong><%= contact.name %></strong> - <%= contact.phoneNumber %>
+        </div>
+        <div class="contact-actions">
+          <a href="/edit/<%= contact._id %>">Edit</a>
+          <a href="/delete/<%= contact._id %>">Delete</a>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+    <a href="/">Go back</a>
+  </body>
+</html>
